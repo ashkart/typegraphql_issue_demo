@@ -14,16 +14,20 @@ export class UserResolver {
 
     // @TODO: Uncomment this to reproduce the problem.
 
-    // @Query(() => UserResultType)
-    // getUserWithUnion(@Arg('error') error: boolean) {
-    //     if (error === true) {
-    //         return new UserNotFoundProblem('qwe@asd.ru');
-    //     }
-    //
-    //     const user = new User();
-    //     user.email = 'qwe@asd.ru';
-    //     user.firstName = 'Fry';
-    //
-    //     return user;
-    // }
+    /*
+
+    @Query(() => UserResultType)
+    getUserWithUnion(@Arg('error') error: boolean) {
+        if (error === true) {
+            return new UserNotFoundProblem('qwe@asd.ru');
+        }
+
+        const user = new User();
+        user.email = 'qwe@asd.ru';
+        user.firstName = 'Fry';
+
+        return user;
+    }
+
+    */
 }

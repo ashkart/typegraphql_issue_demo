@@ -1,5 +1,5 @@
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
-import { User, UserNotFoundProblem, UserResultType } from "./entity";
+import { User, UserNotFoundProblem, UserResultUnionType } from "./entity";
 
 @Resolver(User)
 export class UserResolver {
@@ -12,22 +12,12 @@ export class UserResolver {
         return user;
     }
 
-    // @TODO: Uncomment this to reproduce the problem.
-
-    /*
-
-    @Query(() => UserResultType)
-    getUserWithUnion(@Arg('error') error: boolean) {
-        if (error === true) {
-            return new UserNotFoundProblem('qwe@asd.ru');
-        }
-
+    @Query(() => UserResultUnionType)
+    async getUserWithUnion(@Arg('error') error: boolean) {
         const user = new User();
         user.email = 'qwe@asd.ru';
         user.firstName = 'Fry';
 
         return user;
     }
-
-    */
 }

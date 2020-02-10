@@ -1,4 +1,6 @@
 import { createUnionType, Field, ObjectType } from "type-graphql";
+import {UnionMetadata} from "type-graphql/dist/metadata/definitions";
+import {UnionFromClasses} from "type-graphql/dist/helpers/utils";
 
 @ObjectType()
 export class User {
@@ -9,14 +11,14 @@ export class User {
     firstName: string;
 }
 
+@ObjectType()
 export class UserNotFoundProblem {
-    constructor(public readonly email: string) {
-    }
-
+    @Field()
+    public email: string;
 }
 
-export const UserResultType = createUnionType({
-    name: 'UserResultType',
+export const UserResultUnionType = createUnionType({
+    name: 'UserResultUnionType',
 
     description: 'User or problems',
 
